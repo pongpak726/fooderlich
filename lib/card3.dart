@@ -12,10 +12,10 @@ class Card3 extends StatelessWidget {
         height: 450,
         padding: const EdgeInsets.all(16),
 
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          image: const DecorationImage(
-            image: AssetImage('assets/images/mag.jpg'),
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          image: DecorationImage(
+            image: AssetImage('assets/images/pg3.jpg'),
             fit: BoxFit.cover,
           ),
         ),

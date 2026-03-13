@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fooderlich/fooderlich_theme.dart';
 
 class Card2 extends StatelessWidget {
   const Card2({super.key});
@@ -8,54 +9,64 @@ class Card2 extends StatelessWidget {
 
     return Center(
       child: Container(
-        width: 350,
-        height: 450,
-        padding: const EdgeInsets.all(16),
-
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          image: const DecorationImage(
-          image: AssetImage('assets/images/pg2.jpg'),
-          fit: BoxFit.cover,
+        constraints: const BoxConstraints.expand(
+          width: 350,
+          height: 450,
         ),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/pg2.jpg'),
+            fit: BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
 
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
+        child: Stack(
           children: [
 
-            Row(
-              children: [
+            Positioned(
+              top: 16,
+              left: 16,
+              right: 16,
 
-                const CircleAvatar(
-                  radius: 28,
-                  backgroundImage: AssetImage('assets/images/mag.jpg'),
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                const SizedBox(width: 10),
+                children: [
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  Row(
+                    children: [
 
-                  children: const [
-                    Text(
-                      "Mike Katz",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                      const CircleAvatar(
+                        backgroundImage:
+                        AssetImage('assets/images/mag.jpg'),
+                        radius: 28,
                       ),
-                    ),
-                    Text("Smoothie Connoisseur"),
-                  ],
-                ),
-              ],
-            ),
 
-            IconButton(
-              icon: const Icon(Icons.favorite_border),
-              onPressed: () {},
+                      const SizedBox(width: 10),
+
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Mike Katz",
+                            style: FooderlichTheme.darkTextTheme.titleLarge,
+                          ),
+                          Text(
+                            "Smoothie Connoisseur",
+                            style: FooderlichTheme.darkTextTheme.bodyLarge,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+
+                  const Icon(
+                    Icons.favorite_border,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
