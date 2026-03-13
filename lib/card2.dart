@@ -1,57 +1,65 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:fooderlich/fooderlich_theme.dart';
 
 class Card2 extends StatelessWidget {
   const Card2({super.key});
-  
-  final String category = 'Editors\'s Choice';
-  final String title = 'The Art of Dough';
-  final String description = 'Learn to make the perfect bread.';
-  final String chef = 'Ray wenderlich';
 
   @override
   Widget build(BuildContext context) {
-    
-    return Center(child: Container(
-      padding: const EdgeInsets.all(16),
-      constraints: const BoxConstraints(),
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/images/mag.jpg') ,
+
+    return Center(
+      child: Container(
+        width: 350,
+        height: 450,
+        padding: const EdgeInsets.all(16),
+
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          image: const DecorationImage(
+          image: AssetImage('assets/images/pg2.jpg'),
           fit: BoxFit.cover,
-          ),
-          borderRadius: BorderRadius.all(Radius.circular(10.0))
+        ),
+        ),
+
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+          children: [
+
+            Row(
+              children: [
+
+                const CircleAvatar(
+                  radius: 28,
+                  backgroundImage: AssetImage('assets/images/mag.jpg'),
+                ),
+
+                const SizedBox(width: 10),
+
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+
+                  children: const [
+                    Text(
+                      "Mike Katz",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text("Smoothie Connoisseur"),
+                  ],
+                ),
+              ],
+            ),
+
+            IconButton(
+              icon: const Icon(Icons.favorite_border),
+              onPressed: () {},
+            ),
+          ],
+        ),
       ),
-      
-      child: Stack(
-  children: [
-    Positioned(
-      top: 16,
-      child: Text(category,
-        style: FooderlichTheme.darkTextTheme.bodyLarge),
-    ),
-    Positioned(
-      top: 48,
-      child: Text(title,
-        style: FooderlichTheme.darkTextTheme.titleSmall),
-    ),
-    Positioned(
-      bottom: 48,
-      child: Text(description,
-        style: FooderlichTheme.darkTextTheme.bodyLarge),
-    ),
-    Positioned(
-      bottom: 16,
-      right: 16,
-      child: Text(chef,
-        style: FooderlichTheme.darkTextTheme.bodyLarge),
-    ),
-  ],
-)
-    
-    ),
     );
   }
-  }
+}

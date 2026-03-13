@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
   class _HomeState extends State<Home> {
     int _selectedIndex = 0;
 
-    static List<Widget> pages = <Widget>[
+    final List<Widget> pages = const [
       Card1(),
       Card2(),
       Card3(),
